@@ -809,6 +809,11 @@ details p{font-size:17px;padding:0 24px 24px 0}
     transition:none!important;
   }
 }
+  /* Blend the original logo into the header and footer */
+.site-header .brand img,
+.footer-top > a > img {
+  filter: url(#logo-red-key);
+}
 </style>
 
 <script type="application/ld+json">
@@ -862,6 +867,28 @@ details p{font-size:17px;padding:0 24px 24px 0}
 </head>
 
 <body>
+  <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="0"
+  height="0"
+  aria-hidden="true"
+  focusable="false"
+  style="position:absolute;pointer-events:none">
+  <defs>
+    <filter id="logo-red-key" color-interpolation-filters="sRGB">
+      <feColorMatrix
+        type="matrix"
+        values="
+          1 0 0 0 0
+          0 1 0 0 0
+          0 0 1 0 0
+          0 1 0 0 0"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="24" intercept="-0.1"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+</svg>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="site-header">
